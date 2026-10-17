@@ -2,8 +2,8 @@
   "name": "lab7-gallery",
   "private": true,
   "scripts": {
-    "build:css": "sass --no-source-map --style=expanded src/scss/lab7-gallery.scss lab7-gallery.css",
-    "watch:css": "sass --no-source-map --watch --style=expanded src/scss/lab7-gallery.scss:lab7-gallery.css"
+    "build:css": "sass --no-source-map --style=compressed src/scss/lab7-gallery.scss lab7-gallery.css",
+    "watch:css": "sass --no-source-map --watch --style=compressed src/scss/lab7-gallery.scss:lab7-gallery.css"
   },
   "devDependencies": {
     "sass": "^1.89.0"

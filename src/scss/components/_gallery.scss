@@ -54,10 +54,6 @@
       background: var(--back);
       color: fn.contrast(#382720);
 
-      .artwork-card__meta-label {
-        color: rgba(255, 255, 255, .75);
-      }
-
       h3 {
         margin: auto 0;
       }
@@ -72,13 +68,6 @@
   &:hover .artwork-card__face--front img,
   &:focus-within .artwork-card__face--front img {
     transform: scale(1.08);
-  }
-
-  &__meta-label {
-    color: var(--accent);
-    font-size: fn.rem(12px);
-    font-weight: 700;
-    letter-spacing: .12em;
   }
 
   &__overlay {

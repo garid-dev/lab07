@@ -22,13 +22,9 @@ a {
   margin: auto;
 }
 
-.brand,
-.theme-toggle {
+.brand {
   display: flex;
   align-items: center;
-}
-
-.brand {
   gap: fn.rem(12px);
   text-decoration: none;
 
