@@ -1,0 +1,42 @@
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as mixins;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: fn.rem(30px);
+  padding: fn.rem(28px) 0 fn.rem(42px);
+
+  &__lead {
+    color: var(--muted);
+  }
+
+  &__media {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: var(--surface);
+      object-fit: cover;
+    }
+
+    small {
+      display: block;
+      padding: fn.rem(8px) fn.rem(12px);
+      color: var(--muted);
+    }
+  }
+}
+
+@include mixins.respond(mobile) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: fn.rem(20px);
+    padding: fn.rem(22px) 0 fn.rem(36px);
+  }
+}

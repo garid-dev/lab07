@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f2ea">
+    <title>Lab 7 Sass/SCSS Gallery</title>
+    <link rel="stylesheet" href="lab7-gallery.css">
+    <script src="lab7-gallery.js" defer></script>
+  </head>
+  <body>
+    <div class="loader" role="status" aria-live="polite">
+      <span class="loader__spinner" aria-hidden="true"></span>
+      <span>Зургийн цомог ачаалж байна...</span>
+    </div>
+
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="lab7 нүүр хуудас">
+          <svg class="brand__mark" viewBox="0 0 64 64" role="img" aria-label="Зургийн gallery лого">
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--logo-start)"/>
+                <stop offset="1" stop-color="var(--logo-end)"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="4" width="56" height="56" rx="16" fill="var(--brand-soft)"/>
+            <rect x="13" y="13" width="38" height="38" rx="8" fill="url(#logo-gradient)"/>
+            <circle cx="40" cy="24" r="4" fill="var(--sun)"/>
+            <path d="m16 43 10-12 7 8 5-6 10 11v4H16v-5Z" fill="var(--brand-soft)"/>
+          </svg>
+          <span>
+            <strong class="brand__name">Зургийн цомог портал</strong>
+            <small class="brand__tag">Дэлхийн Уран зургууд</small>
+          </span>
+        </a>
+
+        <button class="theme-toggle" type="button" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle__label">Харанхуй горим</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <h1 id="page-title">Зураг бүр өөрийн гэсэн түүхтэй</h1>
+            <p class="hero__lead">Дэлхийд алдартай уран зургуудыг нэг дороос үзээрэй.</p>
+            <a class="button button--primary" href="#gallery">Зургийн цомог үзэх</a>
+          </div>
+
+          <div class="hero__media">
+            <video
+              controls
+              autoplay
+              muted
+              preload="metadata"
+              playsinline
+              poster="art-gallery-video-poster.jpg">
+              <source src="mona-lisa-5-sec.mp4" type="video/mp4">
+              <track kind="captions" src="captions.vtt" srclang="mn" label="Монгол хадмал" default>
+              Таны хөтөч видео тоглуулах боломжгүй байна.
+            </video>
+          </div>
+        </section>
+
+        <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+          <div class="section-heading">
+            <p class="section-heading__eyebrow">GALLERY</p>
+            <h2 class="section-heading__title" id="gallery-title">Уран Зургууд</h2>
+            <p class="section-heading__description">Карт дээр хулганаа аваачих эсвэл Tab-аар сонгож дэлгэрэнгүйг харна уу.</p>
+          </div>
+
+          <div class="gallery__grid">
+            <article class="artwork-card" tabindex="0" style="--index: 0" aria-label="Starry Night">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://ergelt.mn/upload/images/13492928_the-starry-night-van-gogh-reproduction.jpg" alt="Одтой шөнө" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>Starry Night</h3>
+                    <p>Vincent van Gogh · Netherlands</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>Starry Night</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1889</li>
+                    <li><strong>Тайлбар:</strong> Одтой шөнө</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 1" aria-label="The Mona Lisa">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://ergelt.mn/upload/images/d248d9efd60b860d471d158c857672f2.jpg" alt="Сууж буй эмэгтэй" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Mona Lisa</h3>
+                    <p>Leonardo da Vinci · Italy</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>The Mona Lisa</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1504</li>
+                    <li><strong>Тайлбар:</strong> Гунигтайхан харж, учиртай инээмсэглэх</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 2" aria-label="Girl with a Pearl Earring">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://tse3.mm.bing.net/th/id/OIP.zmS9s2PUa8_zkrKzwgU7pgHaIx?r=0&pid=ImgDet&w=474&h=561&rs=1&o=7&rm=3" alt="Сувдан ээмэгт бүсгүй" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>Girl with a Pearl Earring</h3>
+                    <p>Johannes Vermeer · Netherland</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>Girl with a Pearl Earring</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1665</li>
+                    <li><strong>Тайлбар:</strong> Сувдан ээмэгт бүсгүй</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 3" aria-label="The Scream">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://ergelt.mn/upload/images/MUSEUM-superJumbo.jpg" alt="Хашхирч буй хүн" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Scream</h3>
+                    <p>Edvard Munch · Norway</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>The Scream</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1893</li>
+                    <li><strong>Тайлбар:</strong> Хашхираан</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 1" aria-label="The Kiss">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://ergelt.mn/upload/images/The-Kiss.jpg" alt="Үнсүүлж буй хүн" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Kiss</h3>
+                    <p>Gustav Klimt · Austria</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>The Kiss</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1908</li>
+                    <li><strong>Тайлбар:</strong> Үнсэлт</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 1" aria-label="The Woman of Algiers">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://cdn.luxatic.com/wp-content/uploads/2019/02/Pablo-Picasso.jpg" alt="Алжирийн эмэгтэйчүүд" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Woman of Algiers</h3>
+                    <p>Pablo Picasso · Spain</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>The Woman of Algiers</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1955</li>
+                    <li><strong>Тайлбар:</strong> Алжирийн эмэгтэйчүүд</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 2" aria-label="The Great Wave off Kanagawa">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://i.pinimg.com/originals/a9/86/49/a98649efbbc59a66f0aca5894053517a.jpg" alt="Цунами" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Great Wave off Kanagawa</h3>
+                    <p>Katsushika Hokusai · Japan</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>Girl with a Pearl Earring</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1831</li>
+                    <li><strong>Тайлбар:</strong> Цунами</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="artwork-card" tabindex="0" style="--index: 2" aria-label="The Great Wave off Kanagawa">
+              <div class="artwork-card__inner">
+                <div class="artwork-card__face artwork-card__face--front">
+                  <img src="https://images.immediate.co.uk/production/volatile/sites/7/2021/03/GettyImages-550119221-e490377.jpg" alt="Сүүлчийн зоог" loading="lazy">
+                  <div class="artwork-card__overlay">
+                    <h3>The Last Supper</h3>
+                    <p>Leonardo Da Vinci · Italy</p>
+                  </div>
+                </div>
+                <div class="artwork-card__face artwork-card__face--back">
+                  <h3>The Last Supper</h3>
+                  <ul>
+                    <li><strong>Огноо:</strong> 1498</li>
+                    <li><strong>Тайлбар:</strong> Сүүлчийн зоог</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="location" aria-labelledby="map-title">
+          <div class="section-heading">
+            <p class="section-heading__eyebrow">LOCATION</p>
+            <h2 class="section-heading__title" id="map-title">Байршил</h2>
+          </div>
+          <iframe
+            class="location__map"
+            title="Улаанбаатар хотын газрын зураг"
+            src="https://www.google.com/maps?q=Ulaanbaatar&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </section>
+      </main>
+
+      <footer>Garid · 2026 </footer>
+    </div>
+  </body>
+</html>

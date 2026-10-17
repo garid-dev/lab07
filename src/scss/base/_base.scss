@@ -1,0 +1,112 @@
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as mixins;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.6 Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(1180px, calc(100% - #{fn.rem(36px)}));
+  margin: auto;
+}
+
+.brand,
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: fn.rem(12px);
+  text-decoration: none;
+
+  &__mark {
+    width: fn.rem(46px);
+    height: fn.rem(46px);
+  }
+
+  &__name,
+  &__tag {
+    display: block;
+  }
+}
+
+.brand__tag,
+.hero__lead,
+.section-heading__description,
+footer {
+  color: var(--muted);
+}
+
+.theme-toggle {
+  gap: fn.rem(8px);
+  padding: fn.rem(10px) fn.rem(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible,
+.button:focus-visible,
+.artwork-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.section-heading {
+  margin-bottom: fn.rem(20px);
+
+  &__eyebrow {
+    margin: 0 0 fn.rem(8px);
+    color: var(--accent);
+    font-size: fn.rem(12px);
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+
+  &__title {
+    margin-bottom: fn.rem(4px);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  &__description {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  max-width: fn.rem(540px);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
+footer {
+  padding: fn.rem(18px) 0 fn.rem(28px);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+@include mixins.respond(mobile) {
+  .page {
+    width: min(100% - #{fn.rem(28px)}, 520px);
+  }
+}

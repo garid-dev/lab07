@@ -1,0 +1,38 @@
+@use "sass:color";
+@use "sass:math";
+
+@function rem($pixels, $base: 16px) {
+  @return math.div($pixels, $base) * 1rem;
+}
+
+@function _linear-channel($channel) {
+  $normalized: math.div($channel, 255);
+
+  @if $normalized <= .04045 {
+    @return math.div($normalized, 12.92);
+  }
+
+  @return math.pow(math.div($normalized + .055, 1.055), 2.4);
+}
+
+@function _luminance($value) {
+  $red: _linear-channel(color.channel($value, "red", $space: rgb));
+  $green: _linear-channel(color.channel($value, "green", $space: rgb));
+  $blue: _linear-channel(color.channel($value, "blue", $space: rgb));
+
+  @return .2126 * $red + .7152 * $green + .0722 * $blue;
+}
+
+@function contrast($background, $light: #fff5ec, $dark: #332923) {
+  $background-luminance: _luminance($background);
+  $light-luminance: _luminance($light);
+  $dark-luminance: _luminance($dark);
+  $light-contrast: math.div(math.max($background-luminance, $light-luminance) + .05, math.min($background-luminance, $light-luminance) + .05);
+  $dark-contrast: math.div(math.max($background-luminance, $dark-luminance) + .05, math.min($background-luminance, $dark-luminance) + .05);
+
+  @if $light-contrast >= $dark-contrast {
+    @return $light;
+  }
+
+  @return $dark;
+}

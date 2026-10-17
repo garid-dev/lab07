@@ -1,0 +1,74 @@
+@use "sass:map";
+
+$colors-light: (
+  bg: #f7f2ea,
+  surface: #fffaf5,
+  text: #332923,
+  muted: #75665d,
+  accent: #b86b4f,
+  border: #e5d8cc,
+  overlay: rgba(12, 18, 17, .78),
+  back: linear-gradient(145deg, #9c5c43, #382720),
+  brand-soft: #f1d5bf,
+  logo-start: #d48a66,
+  logo-end: #814632,
+  sun: #f5c46b
+);
+
+$colors-dark: (
+  bg: #191513,
+  surface: #30231e,
+  text: #f5ece5,
+  muted: #c8b4a6,
+  accent: #e2a17f,
+  border: #4a3830,
+  brand-soft: #4a3025,
+  logo-start: #e2a17f,
+  logo-end: #ad674b,
+  sun: #f5d28c
+);
+
+$radii: (
+  default: 22px,
+  pill: 999px
+);
+
+$breakpoints: (
+  mobile: 700px
+);
+
+$timings: (
+  duration: .7s,
+  fast: .25s,
+  stagger: 130ms
+);
+
+:root {
+  color-scheme: light;
+
+  @each $name, $value in $colors-light {
+    --#{$name}: #{$value};
+  }
+
+  @each $name, $value in $radii {
+    --radius-#{$name}: #{$value};
+  }
+
+  --radius: #{map.get($radii, default)};
+
+  @each $name, $value in $breakpoints {
+    --breakpoint-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $timings {
+    --#{$name}: #{$value};
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  @each $name, $value in $colors-dark {
+    --#{$name}: #{$value};
+  }
+}

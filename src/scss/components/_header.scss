@@ -1,0 +1,41 @@
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as mixins;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: fn.rem(16px);
+  padding: fn.rem(18px) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.button {
+  &--primary {
+    display: inline-block;
+    padding: fn.rem(11px) fn.rem(18px);
+    border-radius: var(--radius-pill);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform var(--fast);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.button--primary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.theme-toggle {
+  @include mixins.flex-center;
+}

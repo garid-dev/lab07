@@ -1,0 +1,14 @@
+@use "../abstracts/functions" as fn;
+
+.location {
+  padding-bottom: fn.rem(32px);
+
+  &__map {
+    display: block;
+    width: 100%;
+    min-height: fn.rem(320px);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+}
